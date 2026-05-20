@@ -1,18 +1,11 @@
 package com.ecommerce.service;
 
-import com.ecommerce.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ecommerce.entity.User;
 
-public class UserService {
-    @Autowired
-    private UserRepository userRepository;
+import java.util.List;
 
-    public String userRegister(String email){
+public interface UserService {
 
-        return "logged in successfullly";
-    }
-    public String userLogin(String email){
-
-        return "logged in successfullly";
-    }
+    User registerUser(User user);
+    List<User> getAllUser();
 }
