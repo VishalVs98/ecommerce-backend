@@ -25,4 +25,34 @@ public class CategoryController {
     public List<Category> getCategory(){
         return categoryService.getAllCategories();
     }
+    @GetMapping("/{id}")
+    public Category
+    getCategoryById(
+            @PathVariable Long id){
+
+        return categoryService
+                .getCategoryById(id);
+    }
+
+
+    @PutMapping("/{id}")
+    public Category
+    updateCategory(
+            @PathVariable Long id,
+            @RequestBody Category category){
+
+        return categoryService
+                .updateCategory(id,
+                        category);
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String>
+    deleteCategory(
+            @PathVariable Long id){
+
+        categoryService.deleteCategory(id);
+
+        return ResponseEntity.ok(
+                "Category deleted successfully");
+    }
 }
