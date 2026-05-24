@@ -32,7 +32,7 @@ public class ProductController {
     public ProductResponseDTO getProductById(@PathVariable Long id){
         return productService.getProductById(id);
     }
-
+ 
     @PutMapping("/{id}")
     public ProductResponseDTO updateProduct(@PathVariable Long id, @RequestBody ProductRequestDTO product){
         return productService.updateProduct(id, product);
