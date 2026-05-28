@@ -53,8 +53,12 @@ public class SecurityConfig {
 
                         .requestMatchers(
                                 "/auth/**",
-                                "/user/**")
-                        .permitAll()
+                                "/user/**"
+                        , "/swagger-ui/**",
+                        "/v3/api-docs/**",
+                        "/swagger-ui.html")
+
+                .permitAll()
 
                         .requestMatchers(
                                 HttpMethod.GET,
@@ -82,6 +86,10 @@ public class SecurityConfig {
                                 "/product/**")
                         .hasAuthority("ADMIN")
 
+                        .requestMatchers(
+                                HttpMethod.POST,
+                                "/orders/**")
+                        .hasAnyAuthority("CUSTOMER", "ADMIN")
 
                         .anyRequest()
                         .authenticated()
