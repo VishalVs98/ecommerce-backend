@@ -39,9 +39,8 @@ public class OrderServiceImpl implements OrderService {
                                 "User not found"));
 
         CustomerOrder order = new CustomerOrder();
-
         order.setUser(user);
-
+        
         order.setStatus(
                 OrderStatus.CONFIRMED);
 
